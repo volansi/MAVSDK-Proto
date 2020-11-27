@@ -94,7 +94,7 @@ def jinja_indent(_in_str, level):
 def get_template_env(_searchpath):
     """ Generates the template environment """
     _template_env = Environment(loader=FileSystemLoader(
-        searchpath=_searchpath))
+        searchpath=_searchpath), lstrip_blocks=True, trim_blocks=True)
 
     # Register some functions we need to access in the template
     _template_env.globals.update(indent=jinja_indent)
